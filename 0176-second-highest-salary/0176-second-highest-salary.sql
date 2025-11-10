@@ -18,23 +18,24 @@ Select isnull((Select top 1 salary from SalaryRank where rnk = 2), NULL) SecondH
 
 
 
-/*
+
 Select isnull(
     (Select Distinct salary
     From Employee
     Order by salary Desc
     Offset 1 rows fetch next 1 rows only),NULL
 ) SecondHighestSalary 
-*/
 
 
 
 
 
 
+/*
 Select isnull(
     (Select Distinct Top 1 salary
     From Employee
     where salary < (Select max(salary) from Employee)
     Order by salary Desc),NULL
 ) SecondHighestSalary 
+*/
