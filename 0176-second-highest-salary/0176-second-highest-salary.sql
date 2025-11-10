@@ -5,7 +5,7 @@ With SalaryRank As (
     dense_rank() over (order by salary desc) as rnk
     from Employee
 )
-Select isnull((Select salary from SalaryRank where rnk = 2), NULL) SecondHighestSalary 
+Select isnull((Select top 1 salary from SalaryRank where rnk = 2), NULL) SecondHighestSalary 
 
 
 
